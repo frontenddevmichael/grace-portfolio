@@ -24,8 +24,8 @@ const experience = [
 ]
 
 const education = [
-    { degree: 'B.Sc. Computer Science', school: 'University of Port Harcourt', period: '2019 - Present' },
-    { degree: 'Secondary School Certificate', school: 'Archdeacon Brown Education Centre', period: '2012 - 2018' },
+    { degree: 'B.Sc. Computer Science', school: 'Bells University of Technology', period: '2024 - Present' },
+    { degree: 'Secondary School Certificate', school: 'Marygold International school', period: '2019 - 2024' },
 ]
 
 export default function ExperienceEducation() {

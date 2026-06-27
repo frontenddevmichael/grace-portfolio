@@ -38,9 +38,10 @@ const navLinks = [
 ]
 
 const socials = [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/grace-ufuah-49a566342' },
-    { label: 'Twitter', href: 'https://x.com/ufuahg' },
-    { label: 'Behance', href: '#' }, // swap in her real Behance URL when ready
+    { label: 'LinkedIn', href: 'linkedin.com/in/grace-ufuah-49a566342?utm_source=share_via&utm_content=profile&utm_medium=member_ios' },
+    {
+        label: 'Instagram', href: 'https://www.instagram.com/ufuah_grace?igsh=MWFkZ3Jrc2Rja3Vsdw%3D%3D&utm_source=qr' },
+    { label: 'Twitter', href: 'https://x.com/ufuahg?s=11' },
 ]
 
 export default function Footer() {
@@ -81,7 +82,7 @@ export default function Footer() {
                     <ul className={styles.contactList}>
                         <li className={styles.contactItem}>
                             <MailIcon />
-                            <a href="mailto:hello@graceufuah.com">hello@graceufuah.com</a>
+                            <a href="mailto:ufuahebosereme@gmail.com">ufuahebosereme@gmail.com</a>
                         </li>
                         <li className={styles.contactItem}>
                             <ChatIcon />
@@ -125,10 +126,9 @@ export default function Footer() {
                     ))}
                 </nav>
 
-                <p className={styles.copyright}>&copy; {new Date().getFullYear()} Grace Ufuah. Made with Chaos.</p>
+                <p className={styles.copyright}>&copy; {new Date().getFullYear()} Grace Ufuah.</p>
             </div>
 
-            <div className={styles.gradientStripe} />
         </footer>
     )
 }

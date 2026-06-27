@@ -38,7 +38,7 @@ const skillGroups = [
         label: 'Design Tools',
         variant: 'coral',
         icon: <PaintbrushIcon />,
-        items: ['Figma', 'Photoshop', 'Corel Draw', 'Canva', 'Pixellab'],
+        items: ['Figma', 'Photoshop', 'Corel Draw', 'Canva', 'Pixellab', 'Capcut'],
     },
     {
         id: 'design-skills',
@@ -52,7 +52,7 @@ const skillGroups = [
         label: 'Programming',
         variant: 'teal',
         icon: <CodeIcon />,
-        items: ['HTML', 'CSS', 'JavaScript', 'Web Flow', 'Python', 'Dart'],
+        items: ['HTML', 'CSS', 'JavaScript', 'Web Flow', ],
     },
     {
         id: 'workplace',
@@ -103,6 +103,7 @@ export default function Skills() {
             <svg className={styles.floatRing} viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="12" cy="12" r="9" stroke="var(--raw-teal)" strokeWidth="2.5" />
             </svg>
+
 
             <h2 className={styles.heading}>Skills &amp; Tools</h2>
 

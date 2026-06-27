@@ -130,17 +130,6 @@
   --z-modal: 300;
 }
 
-/* ==========================================================================
-   BREAKPOINTS — reference only.
-   CSS custom properties cannot be used inside @media conditions, so these
-   exist for documentation/consistency. Hardcode the matching px value in
-   each @media query, and keep this comment block in sync if they change.
-
-   --bp-sm: 480px   (large phones)
-   --bp-md: 768px   (tablets / nav collapses to hamburger below this)
-   --bp-lg: 1024px  (small laptops)
-   --bp-xl: 1280px  (desktop, max content width)
-   ========================================================================== */
 
 /* ----- Reduced motion: respect it globally, not per-component ----- */
 @media (prefers-reduced-motion: reduce) {
