@@ -1,0 +1,375 @@
+.container {
+  margin-top: 1rem;
+  height: 85vh;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background-color: var(--raw-cream);
+}
+
+.textContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 3rem;
+  padding: 1rem 2rem;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-50);
+  font-weight: var(--fw-regular);
+  background-color: var(--raw-teal);
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 5px 5px var(--raw-ink);
+  width: fit-content;
+  border-radius: 2rem;
+  padding: .4rem .8rem;
+  border: 5px solid var(--raw-ink);
+  transform: rotate(3deg);
+  transform-origin: center center;
+
+}
+
+
+.eyebrow {
+  animation: shadowPump 3s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes shadowPump {
+  0%, 100% {
+    /* Base State: Full height, full crisp shadow */
+    transform: rotate(6deg) translate(0, 0);
+    box-shadow: 7px 7px var(--raw-ink);
+    border-color: var(--raw-ink);
+  }
+
+  50% {
+    /* Compressed State: The badge sinks downward and rightwards, */
+    /* while the shadow flattens to 1px. They meet in the middle. */
+    transform: rotate(1deg) translate(4px, 4px);
+    box-shadow: .51px 1.5px var(--raw-ink);
+    border-color: transparent;
+  }
+}
+
+@keyframes tactileSwing {
+  0%, 100% {
+    transform: rotate(3deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-2deg) translateY(-3px);
+  }
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--fs-900);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-primary);
+  margin: 0px;
+  margin-top: 1rem;
+}
+
+.roles {
+  font-family: var(--font-body);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-muted);
+  background-color: var(--raw-coral-dim);
+  width: fit-content;
+  padding: 1rem;
+  transform: rotate(2deg);
+  padding: 0px 7rem 0px 1rem;
+
+}
+
+.roles p {
+  margin: 1px;
+  color: var(--color-text-muted);
+  font-size: var(--fs-600);
+  font-weight: var(--fw-extralight);
+  font-family: var(--font-body);
+  transform-origin: center center;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  line-height: var(--lh-relaxed);
+  width: 60%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+
+.button {
+  transition: all .1s ease-in-out;
+  transform: rotate(3deg);
+}
+
+.button2 {
+  background-color: var(--raw-white);
+  transition: all .1s ease-in-out;
+  transform: rotate(-3deg);
+
+}
+
+.button2:hover {
+  background-color: var(--raw-white);
+  color: var(--raw-coral);
+  border-color: var(--raw-coral);
+  box-shadow: none;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tornPaper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Torn left edge — jagged polygon going down the left side */
+  clip-path: polygon(8% 0%,
+      12% 2%,
+      7% 5%,
+      13% 8%,
+      6% 12%,
+      11% 16%,
+      5% 20%,
+      10% 24%,
+      4% 28%,
+      9% 32%,
+      3% 37%,
+      8% 41%,
+      2% 45%,
+      7% 50%,
+      3% 54%,
+      9% 58%,
+      4% 63%,
+      10% 67%,
+      5% 72%,
+      11% 76%,
+      6% 80%,
+      12% 84%,
+      7% 88%,
+      13% 92%,
+      8% 96%,
+      14% 100%,
+      100% 100%,
+      100% 0%);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+
+button {
+  background-color: var(--color-primary);
+  color: var(--raw-ink);
+  border: none;
+  padding: .5rem 1.5rem;
+  font-size: var(--fs-200);
+  font-family: var(--font-body);
+  border-radius: 2rem;
+  font-weight: var(--fw-regular);
+  border: 2.5px solid var(--raw-ink);
+  cursor: pointer;
+  text-align: center;
+  box-shadow: .3rem .3rem var(--raw-ink);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--raw-white);
+  color: var(--raw-coral);
+  border-color: var(--raw-coral);
+  box-shadow: none;
+}
+
+/* ─── Tablet (≤ 900px): side-by-side but tighter ─── */
+@media (max-width: 900px) {
+  .container {
+    height: auto;
+    min-height: 85vh;
+  }
+
+  .textContainer {
+    width: 52%;
+    margin-left: 1.5rem;
+    padding: 1rem 1rem;
+  }
+
+  .name {
+    font-size: clamp(2.8rem, 6vw, var(--fs-900));
+  }
+
+  .roles {
+    padding: 0px 3rem 0px 1rem;
+  }
+
+  .roles p {
+    font-size: clamp(1.4rem, 3.5vw, var(--fs-600));
+  }
+
+  .description {
+    width: 85%;
+    font-size: var(--fs-100);
+  }
+
+  .imageContainer {
+    width: 48%;
+  }
+}
+
+/* ─── Mobile (≤ 640px): stack vertically ─── */
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
+    align-items: flex-start;
+  }
+
+  /* ── Text block: full width, on top ── */
+  .textContainer {
+    width: 100%;
+    margin-left: 0;
+    padding: 2rem 1.2rem 1.5rem;
+    order: 1;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-size: var(--fs-50);
+  }
+
+  .name {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+    margin-top: 0.75rem;
+  }
+
+  .roles {
+    transform: rotate(1deg);
+    padding: 0 2rem 0 0.75rem;
+  }
+
+  .roles p {
+    font-size: clamp(1.1rem, 5.5vw, 1.6rem);
+  }
+
+  .description {
+    width: 100%;
+    font-size: var(--fs-100);
+    margin-top: 0.75rem;
+  }
+
+  .buttons {
+    margin-top: 1.25rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    transform: rotate(2deg);
+  }
+
+  .button2 {
+    transform: rotate(-2deg);
+  }
+
+  /* ── Image block: below text, full width ── */
+  .imageContainer {
+    position: relative;
+    /* override absolute so it flows in the stack */
+    top: unset;
+    right: unset;
+    width: 100%;
+    height: 55vw;
+    /* proportional height */
+    max-height: 320px;
+    order: 2;
+  }
+
+  /* Swap torn edge: top jagged instead of left side */
+  .tornPaper {
+    clip-path: polygon(0% 8%,
+        2% 5%,
+        5% 9%,
+        8% 4%,
+        11% 8%,
+        14% 3%,
+        18% 7%,
+        22% 2%,
+        26% 6%,
+        30% 2%,
+        34% 7%,
+        38% 3%,
+        42% 8%,
+        46% 3%,
+        50% 7%,
+        54% 2%,
+        58% 6%,
+        62% 2%,
+        66% 7%,
+        70% 3%,
+        74% 8%,
+        78% 4%,
+        82% 9%,
+        86% 4%,
+        90% 8%,
+        94% 3%,
+        98% 7%,
+        100% 4%,
+        100% 100%,
+        0% 100%);
+  }
+
+  .photo {
+    object-position: center 20%;
+  }
+}
+
+/* ─── Small mobile (≤ 380px) ─── */
+@media (max-width: 380px) {
+  .textContainer {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .name {
+    font-size: clamp(2rem, 12vw, 2.8rem);
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button,
+  .button2 {
+    transform: none;
+    width: fit-content;
+  }
+}

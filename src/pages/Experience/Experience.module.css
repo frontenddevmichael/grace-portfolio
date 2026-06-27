@@ -1,0 +1,272 @@
+.section {
+    position: relative;
+    overflow: hidden;
+    background: var(--raw-cream);
+    padding: 4rem 2rem 5rem;
+}
+
+/* ---------- floating decorative icons ---------- */
+
+.floatBriefcase,
+.floatGradCap {
+    position: absolute;
+    pointer-events: none;
+}
+
+.floatBriefcase {
+    top: 6%;
+    left: 8%;
+    width: 30px;
+    height: 30px;
+    animation: floatY 5s ease-in-out infinite;
+}
+
+.floatGradCap {
+    top: -8px;
+    right: 12px;
+    width: 26px;
+    height: 26px;
+    animation: floatY 4.5s ease-in-out infinite reverse;
+}
+
+@keyframes floatY {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ---------- grid ---------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+}
+
+.column {
+    position: relative;
+}
+
+/* ---------- pills (shared style with Skills component) ---------- */
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-100);
+    font-weight: var(--fw-bold);
+    padding: 0.4rem 0.9rem;
+    border: 2.5px solid var(--raw-ink);
+    border-radius: var(--radius-sm);
+    box-shadow: 4px 4px 0 var(--raw-ink);
+    transform: rotate(-2deg);
+    margin-bottom: 2rem;
+    width: fit-content;
+}
+
+.pillCoral {
+    background: var(--raw-coral);
+    color: var(--raw-ink);
+}
+
+.pillTeal {
+    background: var(--raw-teal);
+    color: var(--raw-white);
+}
+
+/* ---------- timeline ---------- */
+
+.timelineWrap {
+    position: relative;
+    padding-left: 2.2rem;
+}
+
+.timelineLine {
+    position: absolute;
+    top: 6px;
+    left: 7px;
+    width: 2px;
+    height: 0%;
+    background: var(--raw-ink);
+    opacity: 0.25;
+    transition: height 1s ease;
+}
+
+.visible .timelineLine {
+    height: calc(100% - 6px);
+}
+
+.timelineList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.timelineItem {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.visible .timelineItem {
+    animation: itemIn 0.5s ease forwards;
+    animation-delay: var(--delay, 0ms);
+}
+
+@keyframes itemIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.dot {
+    position: absolute;
+    left: -2.2rem;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2.5px solid var(--raw-ink);
+    z-index: 1;
+}
+
+.dot-teal {
+    background: var(--raw-teal);
+}
+
+.dot-marigold {
+    background: var(--raw-marigold);
+}
+
+.dot-rose {
+    background: var(--raw-rose);
+}
+
+.role {
+    font-family: var(--font-body);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
+    color: var(--raw-ink);
+    margin: 0 0 0.2rem;
+}
+
+.meta {
+    font-family: var(--font-body);
+    font-size: var(--fs-100);
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+/* ongoing pulse */
+.liveDot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--raw-teal);
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 5px rgba(0, 168, 150, 0);
+    }
+}
+
+/* ---------- education cards ---------- */
+
+.cardStack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.eduCard {
+    background: var(--raw-white);
+    border: 2px solid var(--raw-ink);
+    border-radius: var(--radius-sm);
+    box-shadow: 6px 6px 0 var(--raw-ink);
+    padding: 1.4rem 1.6rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.visible .eduCard {
+    animation: cardIn 0.55s ease forwards;
+    animation-delay: var(--delay, 0ms);
+}
+
+@keyframes cardIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--restRotate, 0deg));
+    }
+}
+
+.tilt0 {
+    --restRotate: -1.5deg;
+}
+
+.tilt1 {
+    --restRotate: 1.5deg;
+}
+
+.eduCard:hover {
+    transform: translateY(2px) rotate(0deg);
+    box-shadow: 3px 3px 0 var(--raw-ink);
+}
+
+.degree {
+    font-family: var(--font-body);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-300);
+    color: var(--raw-ink);
+    margin: 0 0 0.3rem;
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .floatBriefcase,
+    .floatGradCap,
+    .timelineLine,
+    .timelineItem,
+    .eduCard,
+    .liveDot {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        height: 100% !important;
+    }
+}

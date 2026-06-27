@@ -1,0 +1,171 @@
+/* ==========================================================================
+   GRACE UFUAH PORTFOLIO — DESIGN TOKENS
+   Single source of truth for color, type, spacing, and motion.
+   Import this once in main.tsx, before global.css.
+   ========================================================================== */
+
+:root {
+  /* ----- Raw color palette ----- */
+  --raw-coral: #FF6B4A;
+  --raw-coral-dim: #e8542f88;
+  --raw-plum: #2D1B3D;
+  --raw-marigold: #FFC857;
+  --raw-teal: #00A896;
+  --raw-cream: #ffe1c0;
+  --raw-ink: #1A1015;
+  --raw-white: #FFFFFF;
+
+  /* ----- Semantic color tokens (use these in components, not the raw ones) ----- */
+  --color-bg: var(--raw-cream);
+  --color-bg-inverse: var(--raw-plum);
+  --color-surface: var(--raw-white);
+  --color-text: var(--raw-ink);
+  --color-text-inverse: var(--raw-cream);
+  --color-text-muted: rgba(26, 16, 21, 0.65);
+
+  --color-primary: var(--raw-coral);
+  --color-primary-hover: #E8552F;
+  --color-accent: var(--raw-marigold);
+  --color-secondary: var(--raw-teal);
+
+  --color-border: rgba(26, 16, 21, 0.12);
+  --color-border-dashed: rgba(26, 16, 21, 0.25);
+  /* for placeholder work cards */
+
+  /* ----- Typography ----- */
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-body: 'General Sans', system-ui, sans-serif;
+  --font-accent: 'Caveat', cursive;
+  /* sticker labels only — never body copy */
+
+  /* Type scale, ~1.25 ratio, base 16px */
+  --fs-50: 0.64rem;
+  --fs-100: 0.8rem;
+  /* 12.8px — captions, fine print */
+  --fs-200: 1rem;
+  /* 16px   — body */
+  --fs-300: 1.25rem;
+  /* 20px   — lead paragraph, card titles */
+  --fs-400: 1.563rem;
+  /* 25px   — section labels */
+  --fs-500: 1.953rem;
+  /* 31px   — h3 */
+  --fs-600: 2.441rem;
+  /* 39px   — h2 */
+  --fs-700: 3.052rem;
+  /* 49px   — h1 (mobile hero) */
+  --fs-800: 3.815rem;
+  /* 61px   — hero name (tablet) */
+  --fs-900: 4.768rem;
+  /* 76px   — hero name (desktop) */
+
+  --lh-tight: 1.1;
+  /* display headlines */
+  --lh-normal: 1.5;
+  /* body text */
+  --lh-relaxed: 1.7;
+  /* long-form about text */
+  --fw-extralight: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* ----- Spacing scale (4px base unit) ----- */
+  --space-1: 0.25rem;
+  /* 4px */
+  --space-2: 0.5rem;
+  /* 8px */
+  --space-3: 0.75rem;
+  /* 12px */
+  --space-4: 1rem;
+  /* 16px */
+  --space-5: 1.5rem;
+  /* 24px */
+  --space-6: 2rem;
+  /* 32px */
+  --space-7: 3rem;
+  /* 48px */
+  --space-8: 4rem;
+  /* 64px */
+  --space-9: 6rem;
+  /* 96px  — section padding, desktop */
+  --space-10: 8rem;
+  /* 128px — hero vertical breathing room */
+
+  /* ----- Radius ----- */
+  --radius-sm: 4px;
+  /* buttons, badges */
+  --radius-md: 12px;
+  /* cards */
+  --radius-lg: 20px;
+  /* hero photo frame, large panels */
+  --radius-full: 999px;
+  /* pills, sticker badges */
+
+  /* ----- Shadows ----- */
+  --shadow-sticker: 4px 6px 0 rgba(26, 16, 21, 0.15);
+  /* flat "sticker" drop shadow */
+  --shadow-card: 0 8px 24px rgba(45, 27, 61, 0.12);
+  /* resting card */
+  --shadow-lift: 0 16px 40px rgba(45, 27, 61, 0.2);
+  /* hover/active card */
+
+  /* ----- Tilt (scrapbook rotation — apply sparingly, max one neighbor at a time) ----- */
+  --tilt-sm: -2deg;
+  --tilt-md: 3deg;
+  --tilt-lg: -4deg;
+
+  /* ----- Motion ----- */
+  --ease-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  /* ----- z-index scale ----- */
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+}
+
+/* ==========================================================================
+   BREAKPOINTS — reference only.
+   CSS custom properties cannot be used inside @media conditions, so these
+   exist for documentation/consistency. Hardcode the matching px value in
+   each @media query, and keep this comment block in sync if they change.
+
+   --bp-sm: 480px   (large phones)
+   --bp-md: 768px   (tablets / nav collapses to hamburger below this)
+   --bp-lg: 1024px  (small laptops)
+   --bp-xl: 1280px  (desktop, max content width)
+   ========================================================================== */
+
+/* ----- Reduced motion: respect it globally, not per-component ----- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans-Variable.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}

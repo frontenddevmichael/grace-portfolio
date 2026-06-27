@@ -1,0 +1,300 @@
+.aboutContainer {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--raw-cream);
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- decorative floating shapes ---------- */
+
+.floatStar,
+.floatSquiggle,
+.floatDotCluster {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floatStar {
+  top: 8%;
+  left: 6%;
+  width: 38px;
+  height: 38px;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.floatSquiggle {
+  bottom: 10%;
+  right: 8%;
+  width: 90px;
+  opacity: 0.8;
+  animation: floatX 6s ease-in-out infinite;
+}
+
+.floatDotCluster {
+  top: 12%;
+  right: 12%;
+  width: 50px;
+  animation: floatY 5s ease-in-out infinite reverse;
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatX {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(8px) rotate(2deg);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .floatSquiggle,
+  .floatDotCluster {
+    display: none;
+  }
+
+  .floatStar {
+    width: 26px;
+    height: 26px;
+    top: 4%;
+    left: 4%;
+  }
+}
+
+/* ---------- entrance animation ---------- */
+
+.content {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- original card styles ---------- */
+
+.eyebrow {
+  display: inline-block;
+  background-color: var(--raw-coral);
+  color: var(--raw-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-bold);
+  padding: 0.35rem 0.9rem;
+  border: 2.5px solid var(--raw-ink);
+  box-shadow: 4px 4px 0 var(--raw-ink);
+  border-radius: var(--radius-sm);
+  transform: rotate(-2deg);
+  margin-bottom: 1.4rem;
+  width: fit-content;
+}
+
+.card {
+  background: var(--raw-white);
+  border: 2px solid var(--raw-ink);
+  box-shadow: 6px 6px 0 var(--raw-ink);
+  border-radius: var(--radius-sm);
+  padding: 2rem 2.2rem;
+  position: relative;
+  max-width: 680px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(4px);
+  box-shadow: 2px 2px 0 var(--raw-ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-color: transparent;
+}
+
+.tealDot {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--raw-teal);
+  border-radius: 50%;
+  border: 2.5px solid var(--raw-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--raw-white);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--fs-100);
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(0, 168, 150, 0);
+  }
+}
+
+.highlightBlock {
+  background-color: var(--raw-coral-dim);
+  border-radius: 3px;
+  padding: 0.75rem 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.highlightBlock p,
+.plainBlock p {
+  font-family: var(--font-body);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text);
+}
+
+/* ---------- skill tag row ---------- */
+
+.skillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.skillPill {
+  font-family: var(--font-body);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-bold);
+  color: var(--raw-ink);
+  background: var(--raw-marigold);
+  border: 2px solid var(--raw-ink);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  opacity: 0;
+  transform: translateY(8px) rotate(-3deg);
+}
+
+.skillPill:nth-child(even) {
+  transform: translateY(8px) rotate(3deg);
+}
+
+.skillPill:nth-child(2) {
+  background: var(--raw-teal);
+  color: var(--raw-white);
+}
+
+.skillPill:nth-child(3) {
+  background: var(--raw-coral);
+}
+
+.skillPill:nth-child(4) {
+  background: var(--raw-white);
+}
+
+.visible .skillPill {
+  animation: pillIn 0.45s ease forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes pillIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.skillPill:hover {
+  transform: translateY(-3px) rotate(0deg);
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+/* ---------- respect reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .floatStar,
+  .floatSquiggle,
+  .floatDotCluster,
+  .tealDot,
+  .content,
+  .skillPill {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+/* ─── Tablet (≤ 768px) ─── */
+@media (max-width: 768px) {
+  .aboutContainer {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .card {
+    padding: 1.6rem 1.5rem;
+  }
+}
+
+/* ─── Mobile (≤ 480px) ─── */
+@media (max-width: 480px) {
+  .aboutContainer {
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+    box-shadow: 4px 4px 0 var(--raw-ink);
+  }
+
+  .card:hover {
+    transform: none;
+    /* disable lift on touch */
+    box-shadow: 4px 4px 0 var(--raw-ink);
+  }
+
+  .highlightBlock p,
+  .plainBlock p {
+    font-size: var(--fs-100);
+    line-height: 1.65;
+  }
+
+  .skillRow {
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .skillPill {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .tealDot {
+    width: 26px;
+    height: 26px;
+    top: -12px;
+    right: -10px;
+  }
+}
